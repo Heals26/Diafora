@@ -93,6 +93,7 @@ class Ball {
 
   handleCannonCollision(cannon) {
     this.dispose();
+    cannon.dispose();
   }
   
   intersectsBall(otherBall) {
@@ -136,8 +137,8 @@ class Cannon {
     this.baseOffset = 10;
     this.barrelLength = 25;
     this.baseRadius = 25;
-    this.fireInterval = 60;
-    this.fireCounter = 0;
+    this.fireInterval = random(0, 50);
+    this.fireCounter = random(20, 50);
   }
   
   update() {
@@ -259,7 +260,7 @@ changeTeam(team) {
 
 class Team {
   constructor(team, position) {
-    this.team = team;
+    this.id = team;
     switch (team) {
       case 1:
         this.colour = '#00F';
