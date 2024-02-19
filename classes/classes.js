@@ -127,7 +127,7 @@ class Cannon {
   constructor(team) {
     this.team = team;
     this.position = createVector(this.team.position.x, this.team.position.y);
-    this.markedForDeletion   = false;
+    this.markedForDeletion  = false;
 
     this.maxRotationAngle = PI / 4;
     this.angle = this.calculateInitialAngle() + random(-this.maxRotationAngle, this.maxRotationAngle);
@@ -139,6 +139,8 @@ class Cannon {
     this.baseRadius = 25;
     this.fireInterval = random(0, 50);
     this.fireCounter = random(20, 50);
+    //console.log(this.team.name + ' Interval: ' + this.fireInterval);
+    //console.log(this.team.name + ' Counter: ' + this.fireCounter);
   }
   
   update() {
@@ -264,18 +266,23 @@ class Team {
     switch (team) {
       case 1:
         this.colour = '#00F';
+        this.name = 'Blue';
         break;
       case 2:
         this.colour = '#0F0';
+        this.name = 'Green';
         break;
       case 3:
         this.colour = '#F00';
+        this.name = 'Red';
         break;
       case 4:
         this.colour = '#FF0';
+        this.name = 'Yellow'
         break;
       default:
         this.colour = '#000';
+        this.name = 'Wild';
         break;
     }
     
